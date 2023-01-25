@@ -1,0 +1,20 @@
+.input {
+  margin-right: 5px;
+  background: none;
+  border: 6px #fab2cd solid;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 25px;
+  width: inherit;
+  color: white;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  font-weight: bold;
+  color: rgba(250, 178, 205, 49%);
+  cursor: not-allowed;
+}

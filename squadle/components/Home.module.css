@@ -1,0 +1,24 @@
+.main_page {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.logo {
+  width: 800px;
+}
+
+.menu {
+  width: 400px;
+  color: #fab2cd;
+}
+
+.join_room {
+  width: inherit;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}

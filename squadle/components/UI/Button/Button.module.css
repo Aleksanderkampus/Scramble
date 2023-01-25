@@ -1,0 +1,19 @@
+.button {
+  border: 6px #fab2cd solid;
+  border-radius: 20px;
+  background: none;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  width: inherit;
+  text-align: center;
+  padding: 6px;
+  letter-spacing: 1px;
+  color: inherit;
+}
+
+.button:disabled {
+  color: rgba(250, 178, 205, 49%);
+  border: 6px rgba(250, 178, 205, 49%) solid;
+  cursor: not-allowed;
+}
