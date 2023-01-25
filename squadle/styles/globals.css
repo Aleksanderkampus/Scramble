@@ -1,26 +1,101 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 * {
-  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+body {
+  background-color: #002763;
+}
+
+.hg-theme-default {
+  background-color: inherit !important;
+}
+
+.keyboard {
+  width: 300px;
+  text-transform: uppercase !important;
+  font-weight: bold !important;
+}
+
+.tile {
+  border: 3px #fab2cd solid;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 10px 5px;
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: #fab2cd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  width: 350px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #020e3d;
+  margin: auto;
+  border-radius: 20px;
+  padding: 15px 0px;
+}
+
+.shake div {
+  animation: horizontal-shaking 0.3s;
+  animation-iteration-count: 1;
+}
+
+.hg-button {
+  border-bottom: none !important;
+}
+
+.greenTile {
+  background-color: rgb(46, 216, 60);
+  border-color: rgb(46, 216, 60);
+}
+
+.yellowTile {
+  background-color: yellow;
+  border-color: yellow;
+}
+
+.grayTile {
+  background-color: #4e353e;
+  border-color: #4e353e;
+}
+
+.greenButtons {
+  background-color: rgb(46, 216, 60) !important;
+}
+
+.grayButtons {
+  background-color: gray !important;
+}
+
+.yellowButtons {
+  background-color: yellow !important;
+}
+
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0);
   }
-  body {
-    color: white;
-    background: black;
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
