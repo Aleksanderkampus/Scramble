@@ -9,11 +9,13 @@
 
 .logo {
   width: 800px;
+  height: auto;
 }
 
 .menu {
   width: 400px;
   color: #fab2cd;
+  margin-top: 20px;
 }
 
 .join_room {

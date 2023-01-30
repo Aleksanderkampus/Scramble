@@ -1,0 +1,13 @@
+.tile {
+  border: 3px #fab2cd solid;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 10px 5px;
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: #fab2cd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}

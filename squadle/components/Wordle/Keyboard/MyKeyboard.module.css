@@ -1,0 +1,5 @@
+.keyboard {
+  width: 300px;
+  text-transform: uppercase !important;
+  font-weight: bold !important;
+}

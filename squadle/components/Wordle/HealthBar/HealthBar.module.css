@@ -1,0 +1,6 @@
+.health_bar {
+  background-color: #ef3471;
+  height: 10px;
+  transition: width 0.5s ease-out;
+  border-radius: 10px;
+}

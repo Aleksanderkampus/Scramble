@@ -1,0 +1,25 @@
+.error_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s ease;
+  margin-top: 10px;
+}
+
+.error {
+  background-color: #ff7f7f;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.show {
+  height: 50px;
+}

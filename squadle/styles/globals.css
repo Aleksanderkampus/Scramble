@@ -10,40 +10,59 @@ body {
   background-color: inherit !important;
 }
 
-.keyboard {
-  width: 300px;
-  text-transform: uppercase !important;
-  font-weight: bold !important;
-}
-
-.tile {
-  border: 3px #fab2cd solid;
-  border-radius: 5px;
-  font-size: 1rem;
-  margin: 10px 5px;
-  width: 2.4rem;
-  height: 2.4rem;
-  background-color: #fab2cd;
+.main_page {
   display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  font-weight: bold;
+  height: 80vh;
 }
 
-.row {
+.player-ready div {
+  background-color: rgb(46, 216, 60) !important;
+  border-color: rgb(46, 216, 60) !important;
+}
+
+.game {
+  justify-content: flex-start;
+}
+
+.game h2 {
+  color: white;
+}
+
+.players {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  align-content: center;
+  width: 100%;
+  height: 80vh;
+  margin-top: 10px;
+}
+
+.logo {
+  width: 800px;
+  height: auto;
 }
 
 .card {
-  display: flex;
   width: 350px;
-  flex-direction: column;
-  align-items: center;
   background-color: #020e3d;
   margin: auto;
   border-radius: 20px;
   padding: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card h2 {
+  color: white;
+  text-align: center;
+  margin: 0;
 }
 
 .shake div {
@@ -51,23 +70,30 @@ body {
   animation-iteration-count: 1;
 }
 
+.health-bar {
+  width: 270px;
+  background-color: #002763;
+  border-radius: 10px;
+  margin: 10px 0px;
+}
+
 .hg-button {
   border-bottom: none !important;
 }
 
 .greenTile {
-  background-color: rgb(46, 216, 60);
-  border-color: rgb(46, 216, 60);
+  background-color: rgb(46, 216, 60) !important;
+  border-color: rgb(46, 216, 60) !important;
 }
 
 .yellowTile {
-  background-color: yellow;
-  border-color: yellow;
+  background-color: yellow !important;
+  border-color: yellow !important;
 }
 
 .grayTile {
-  background-color: #4e353e;
-  border-color: #4e353e;
+  background-color: #4e353e !important;
+  border-color: #4e353e !important;
 }
 
 .greenButtons {

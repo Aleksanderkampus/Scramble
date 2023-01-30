@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hover_div {
+  width: 100px;
+  background-color: #020e3d;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  bottom: 0;
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  margin-bottom: 10px;
+}
+
+.room_code {
+  margin-top: 10px;
+}
+
+.hover_div:hover {
+  transform: scale(1.1);
+}
