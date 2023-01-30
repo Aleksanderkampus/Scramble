@@ -45,7 +45,7 @@ export default function Game(props) {
 
   const handleEnter = () => {
     if (WORDS.includes(input)) {
-      setLetterColors();
+      newSetLetterColors();
       setRowIndex((i) => {
         const j = i + 1;
         return j;
@@ -83,68 +83,117 @@ export default function Game(props) {
     }
   }, [enteredWords]);
 
-  const setLetterColors = () => {
+  const deleteFromOtherButtons = (inputChar) => {
+    if (grayButtons.includes(inputChar)) {
+      setGrayButtons((latest) => {
+        latest.splice(latest.indexOf(inputChar), 1);
+        return latest;
+      });
+    }
+    if (yellowButtons.includes(inputChar)) {
+      setYellowButtons((latest) => {
+        latest.splice(latest.indexOf(inputChar), 1);
+        return latest;
+      });
+    }
+  };
+
+  const newSetLetterColors = () => {
     const yellowLetters = [];
     const grayLetters = [];
     const greenLetters = [];
     let amountToGive = 0;
+    let remainingLettersInWord = props.currentWord;
     const currentRow = document.getElementById("current-row");
-    for (let index = 0; index < input.length; index++) {
-      const tile = currentRow.children[index];
-      let letterColor = "grayTile";
-      const inputChar = input.charAt(index);
-      const currentWordChar = props.currentWord.charAt(index);
-      const noGreenLetter =
-        !greenLetters.includes(inputChar) && !greenButtons.includes(inputChar);
-
-      const noYellowLetter =
-        !yellowButtons.includes(inputChar) &&
-        !yellowLetters.includes(inputChar);
-
-      if (inputChar === currentWordChar) {
-        if (yellowButtons.includes(inputChar)) {
-          setYellowButtons((latest) => {
-            latest.splice(latest.indexOf(inputChar), 1);
+    for (let i = 0; i < 5; i++) {
+      const tile = currentRow.children[i];
+      if (input.charAt(i) === props.currentWord.charAt(i)) {
+        remainingLettersInWord = remainingLettersInWord.replace(
+          props.currentWord.charAt(i),
+          ""
+        );
+        greenLetters.push(input.charAt(i));
+        deleteFromOtherButtons(input.charAt(i));
+        tile.classList.add("greenTile");
+        amountToGive += 2;
+      } else {
+        tile.classList.add("grayTile");
+        grayLetters.push(input.charAt(i));
+      }
+    }
+    for (let i = 0; i < 5; i++) {
+      const tile = currentRow.children[i];
+      if (
+        remainingLettersInWord.includes(input.charAt(i)) &&
+        input.charAt(i) !== props.currentWord.charAt(i)
+      ) {
+        remainingLettersInWord = remainingLettersInWord.replace(
+          input.charAt(i),
+          ""
+        );
+        tile.classList.remove("grayTile");
+        if (grayButtons.includes(input.charAt(i))) {
+          setGrayButtons((latest) => {
+            latest.splice(latest.indexOf(input.charAt(i)), 1);
             return latest;
           });
         }
-        if (noGreenLetter) {
-          greenLetters.push(inputChar);
-        }
-        letterColor = "greenTile";
-        amountToGive += 2;
-      } else if (props.currentWord.includes(inputChar)) {
-        if (noGreenLetter && noYellowLetter) {
-          yellowLetters.push(inputChar);
-        }
-        if (noGreenLetter) {
-          letterColor = "yellowTile";
-          amountToGive += 1;
-        } else {
-          grayLetters.push(inputChar);
-        }
-      } else if (noGreenLetter && noYellowLetter) {
-        grayLetters.push(inputChar);
+        tile.classList.add("yellowTile");
+        yellowLetters.push(input.charAt(i));
+        amountToGive += 1;
       }
-
-      tile.classList.add(letterColor);
     }
     setKeyboardColors(greenLetters, yellowLetters, grayLetters);
     props.giveHealth(amountToGive);
   };
 
+  const filterLetterArrays = (greenLetters, yellowLetters, grayLetters) => {
+    const newGrayLetters = [];
+    const newYellowLetters = [];
+    grayLetters.forEach((element) => {
+      if (
+        !yellowLetters.includes(element) &&
+        !yellowButtons.includes(element) &&
+        !greenButtons.includes(element) &&
+        !greenLetters.includes(element)
+      ) {
+        newGrayLetters.push(element);
+      }
+    });
+    yellowLetters.forEach((element) => {
+      if (!greenLetters.includes(element) && !greenButtons.includes(element)) {
+        newYellowLetters.push(element);
+      }
+    });
+    return [greenLetters, newYellowLetters, newGrayLetters];
+  };
+
   const setKeyboardColors = (greenLetters, yellowLetters, grayLetters) => {
+    const [newGreenLetters, newYellowLetters, newGrayLetters] =
+      filterLetterArrays(greenLetters, yellowLetters, grayLetters);
     setGreenButtons((latest) => {
-      const newArr = [...latest, ...greenLetters];
-      return newArr;
+      newGreenLetters.forEach((element) => {
+        if (!latest.includes(element)) {
+          latest.push(element);
+        }
+      });
+      return latest;
     });
     setYellowButtons((latest) => {
-      const newArr = [...latest, ...yellowLetters];
-      return newArr;
+      newYellowLetters.forEach((element) => {
+        if (!latest.includes(element)) {
+          latest.push(element);
+        }
+      });
+      return latest;
     });
     setGrayButtons((latest) => {
-      const newArr = [...latest, ...grayLetters];
-      return newArr;
+      newGrayLetters.forEach((element) => {
+        if (!latest.includes(element)) {
+          latest.push(element);
+        }
+      });
+      return latest;
     });
   };
 
