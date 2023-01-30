@@ -1,2 +1,2 @@
-# Squadle
-A multiplayer wordle game
+# Scramble
+A 1v1 wordle game
