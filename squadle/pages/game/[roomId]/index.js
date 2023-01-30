@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState, useRef } from "react";
 import Logo from "../../../public/logo.svg";
 import Image from "next/image";
-import io from "Socket.IO-client";
+import io from "socket.io-client";
 import Game from "../../../components/Game";
 import Row from "../../../components/Wordle/Row/Row";
 import MyKeyboard from "../../../components/Wordle/Keyboard/MyKeyboard";

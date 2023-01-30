@@ -1,6 +1,5 @@
 import Home from "../components/Home";
 import { useEffect, useState } from "react";
-import io from "Socket.IO-client";
 import { useRouter } from "next/router";
 import ErrorMessage from "../components/UI/ErrorMessage/ErrorMessage";
 
